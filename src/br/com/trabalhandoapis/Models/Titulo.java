@@ -4,9 +4,7 @@ package br.com.trabalhandoapis.Models;
 import com.google.gson.annotations.SerializedName;
 
 public class Titulo implements Comparable<Titulo>{
-    @SerializedName("Title")
     protected String nome;
-    @SerializedName("Year")
     protected int anoDeLancamento;
     protected boolean incluidoNoPlano;
     protected double somaDasAvaliacoes;
@@ -20,6 +18,12 @@ public class Titulo implements Comparable<Titulo>{
         this.duracaoEmMinutos= duracaoEmMinutos;
         this.somaDasAvaliacoes = 0;
         this.totalAvaliacoes = 0;
+    }
+
+    public Titulo(TituloOmdb meuTituloOmdb) {
+        this.nome = meuTituloOmdb.title();
+        this.anoDeLancamento =  Integer.parseInt(meuTituloOmdb.year());
+        this.duracaoEmMinutos = Integer.parseInt(meuTituloOmdb.runtime().substring(0,2));
     }
 
     public String exibirfichaTecnica(){
