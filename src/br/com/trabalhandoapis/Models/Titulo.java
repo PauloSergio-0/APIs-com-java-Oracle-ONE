@@ -105,13 +105,7 @@ public class Titulo implements Comparable<Titulo>{
 
     @Override
     public String toString() {
-        return String.format("""
-               
-               Nome: %s 
-               Ano de lançamento: %d
-
-               
-               """, this.nome, this.anoDeLancamento);
+        return String.format("(Nome: %s , Ano de lançamento: %d)", this.nome, this.anoDeLancamento);
     }
 }
 
